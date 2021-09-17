@@ -1,0 +1,49 @@
+@import "../global/variables.scss";
+
+
+.slider {
+    position: relative;
+
+    &--left-arrow,
+    &--right-arrow {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        margin: 1rem .5rem 0;
+        border: 1px solid $primary;
+
+        &:hover {
+            box-shadow: 0 0 0 3px $primary-low;
+        }
+
+        svg {
+            fill: $text-dark;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1rem;
+        }
+    }
+
+
+    .product-wrapper {
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(16.3rem, 16.3rem);
+        grid-template-columns: repeat(auto-fit, minmax(16.3rem, 16.3rem));
+        justify-content: flex-start;
+
+        .product {
+            grid-template-columns: auto !important;
+            grid-template-areas: "img" "info" "btn";
+        }
+    }
+
+    &--content {
+        margin: auto;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+    }
+}

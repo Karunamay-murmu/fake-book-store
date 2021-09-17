@@ -1,0 +1,56 @@
+@import "../global/variables.scss";
+
+.order {
+    box-shadow: 0 0 5px -2.5px $text-light-dark;
+    padding: 2rem;
+    border-radius: .5rem;
+
+    h1, h3 {
+        font-weight: 500;
+    }
+
+    h1 {
+        line-height: 2rem;
+    }
+
+    &__body {
+        margin: 2rem 0;
+    }
+
+    &__details {
+        h3 {
+            margin: 1rem 0;
+        }
+
+        &__wrapper {
+            margin-bottom: 1.5rem;
+            &--header {
+                font-weight: 500;
+            }
+            &--body {
+                margin: .2rem 0 .5rem;
+                color: $text-light-dark;
+                width: 100%;
+            }
+        }
+        hr {
+            width: 40rem;
+        }
+    }
+
+    &__product {
+        margin-left: 1rem;
+        width: 100%;
+        &--title {
+            color: $text-dark;
+        }
+        &--qty {
+            margin-left: auto;
+            text-align: end;
+        }
+    }
+
+    &--total {
+        font-size: 1.5rem;
+    }
+}

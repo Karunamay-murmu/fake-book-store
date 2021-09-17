@@ -1,0 +1,64 @@
+.accordion {
+  padding: 1rem 2rem 1rem 6rem;
+  border-radius: .3125rem;
+  -webkit-box-shadow: 0 0 0px 1px #e7e7e9;
+          box-shadow: 0 0 0px 1px #e7e7e9;
+  position: relative;
+}
+
+.accordion__header--name {
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.accordion__header--info {
+  margin-top: .5rem;
+  width: 100%;
+}
+
+.accordion__header--info1, .accordion__header--info2 {
+  padding-right: 2rem;
+}
+
+.accordion__header--icon {
+  position: absolute;
+  width: 1rem;
+  top: 1rem;
+  left: 2rem;
+}
+
+.accordion__button {
+  width: 6.875rem;
+  height: 2.5rem;
+  padding: 0 1.5rem;
+  border: none;
+  text-transform: uppercase;
+  background-color: #e7e7e9;
+  border-radius: .5rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.accordion__content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (calc(33% - 1rem))[auto-fit];
+      grid-template-columns: repeat(auto-fit, calc(33% - 1rem));
+  grid-gap: .5rem;
+}
+
+.accordion__content--hide {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: max-height 0.2s;
+  transition: max-height 0.2s;
+  margin-top: 1rem;
+}
+
+.accordion__content--wrapper {
+  border: 1px solid #e7e7e9;
+  padding: 1rem;
+  border-radius: .5rem;
+}
+/*# sourceMappingURL=accordion.css.map */

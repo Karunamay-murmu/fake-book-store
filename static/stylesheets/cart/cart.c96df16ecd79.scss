@@ -1,0 +1,249 @@
+@import "../global/variables.scss";
+
+.cart {
+    &--header {
+        margin: 1rem 0;
+    }
+    &--order {
+        max-width: 23rem;
+        width: 100%;
+        padding: 1rem;
+        border-radius: .35rem;
+        box-shadow: 0px 0px 0px 1px $text-light inset;
+
+        @media only screen and (max-width: $breakpoint-md) {
+            max-width: 100%;
+        }
+
+        &--header {
+            line-height: 1.5rem;
+            padding-bottom: 1rem;
+        }
+    }
+
+    &--sub-total {
+        padding: 1.5rem 1rem;
+        border-radius: .35rem;
+        background-color: $text-light;
+        font-size: 1.5rem;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__product {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        grid-template-areas:
+            "img qty"
+        ;
+
+        &:not(:last-child) {
+            border-top: 1.5px solid $text-light;
+        }
+
+        padding: 2rem 0;
+
+        &--info-wrapper {
+            margin-left: .5rem;
+        }
+
+        &--info {
+            &--name {
+                padding: 0;
+                line-height:1.2rem;
+            }
+
+            &--author {
+                font-size: .875rem;
+                color: $text-light-dark;
+            }
+
+            &--price {
+                font-size: .875rem;
+                font-weight: 600;
+                margin-top: .5rem;
+                display: flex;
+                justify-content: space-between;
+
+
+                span {
+                    font-weight: 400;
+                    color: $text-light-dark;
+                }
+            }
+        }
+
+        &--image {
+            text-align: center;
+            img {
+                width: 100px;
+                height: 100px;
+                object-fit: contain;
+                border-radius: .35rem;
+
+                @media only screen and (max-width: $breakpoint-m) {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        &__action {
+            margin-top: .5rem;
+
+            &--btn {
+                width: .5rem;
+                height: .5rem;
+                line-height: 1rem;
+                padding: .8rem;
+                background-color: $text-light;
+                margin-right: 1rem;
+                position: relative;
+                border-radius: 50%;
+                cursor: pointer;
+
+                &:hover {
+                    box-shadow: 0 0 0 2px $secondary-green-light;
+                }
+
+                svg {
+                    width: .6rem;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: $text-light-dark;
+                    pointer-events: none;
+                }
+
+                &--delete {
+                    margin-top: .4rem;
+                    cursor: pointer;
+
+                    svg {
+                        fill: $error;
+                    }
+                }
+            }
+
+        }
+    }
+
+    &--wrapper {
+        display: grid;
+        grid-template-columns: calc(100% - 24rem) 23rem;
+        grid-template-areas:
+            "pay summary"
+        ;
+        grid-gap: 1rem;
+
+        @media only screen and (max-width: $breakpoint-md) {
+            grid-template-columns: 1fr;
+            grid-template-areas:
+                "summary"
+                "pay"
+            ;
+        }
+    }
+
+    &--pay {
+        grid-area: pay;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: min-content;
+        grid-template-areas:
+            "login"
+            "address"
+            "payment"
+        ;
+        grid-gap: 1rem;
+    }
+
+    &--summary {
+        grid-area: summary;
+    }
+}
+
+.accordion {
+    padding: 1rem 2rem 1rem 6rem;
+    ;
+    border-radius: .3125rem;
+    box-shadow: 0 0 0px 1px $text-light;
+    position: relative;
+
+    @media only screen and (max-width: $breakpoint-lg) {
+        padding: 1rem 1rem 1rem 4rem;
+    }
+
+    &__header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-gap: 1rem;
+
+        @media only screen and (max-width: $breakpoint-lg) {
+            grid-template-columns: auto;
+        }
+
+        &--name {
+            text-transform: uppercase;
+            font-size: 1rem;
+            line-height: 1rem;
+        }
+
+        &--info1,
+        &--info2 {
+            padding-right: 2rem;
+        }
+
+        &--icon {
+            position: absolute;
+            width: 1rem;
+            top: 1rem;
+            left: 2rem;
+        }
+    }
+
+    &--info {
+        margin-top: .5rem;
+        width: 100%;
+    }
+
+    &__button {
+        button {
+            width: 6.875rem;
+
+        }
+    }
+
+    &__content {
+
+        &--address {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            grid-gap: .5rem;
+
+            a {
+                color: $text-dark;
+            }
+        }
+
+        &--hide {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.2s;
+        }
+
+        &--wrapper {
+            border: 1px solid $text-light;
+            padding: 1rem;
+            border-radius: .5rem;
+
+            &:hover {
+                border-color: $hover;
+            }
+        }
+    }
+
+
+}

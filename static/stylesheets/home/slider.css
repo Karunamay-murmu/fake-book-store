@@ -1,0 +1,51 @@
+.slider {
+  position: relative;
+}
+
+.slider--left-arrow, .slider--right-arrow {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  margin: 1rem .5rem 0;
+  border: 1px solid #156B6A;
+}
+
+.slider--left-arrow:hover, .slider--right-arrow:hover {
+  -webkit-box-shadow: 0 0 0 3px #156b6a33;
+          box-shadow: 0 0 0 3px #156b6a33;
+}
+
+.slider--left-arrow svg, .slider--right-arrow svg {
+  fill: #2C394B;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 1rem;
+}
+
+.slider .product-wrapper {
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(16.3rem, 16.3rem);
+  -ms-grid-columns: (minmax(16.3rem, 16.3rem))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(16.3rem, 16.3rem));
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.slider .product-wrapper .product {
+  -ms-grid-columns: auto !important;
+      grid-template-columns: auto !important;
+      grid-template-areas: "img" "info" "btn";
+}
+
+.slider--content {
+  margin: auto;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+/*# sourceMappingURL=slider.css.map */

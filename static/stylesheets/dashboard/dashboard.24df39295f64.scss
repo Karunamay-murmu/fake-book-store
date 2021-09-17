@@ -1,0 +1,41 @@
+@import "../global/variables.scss";
+
+.dashboard {
+    &__content {
+        &--container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(auto, 20.5rem));
+            grid-gap: 1rem;
+            justify-content: center;
+
+            .card {
+                width: 100%;
+                box-shadow: 0px 0px 0px 1px $text-light-dark;
+                border-radius: .5rem;
+                padding: 1rem;
+                color: $text-dark;
+                
+                &:hover {
+                    box-shadow: 0px 0px 0px 2px $secondary;
+                }
+                
+                
+                &--name {
+                    margin-left: 1rem;
+                    h2 {
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                    }
+
+                    p {
+                        color: $text-light-dark;
+                    }
+                }
+
+                &--icon {
+                    width: 2rem;
+                }
+            }
+        }
+    }
+}

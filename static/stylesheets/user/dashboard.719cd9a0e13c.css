@@ -1,0 +1,42 @@
+.dashboard__content--container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(20.5rem, 20.5rem))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(20.5rem, 20.5rem));
+  grid-gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.dashboard__content--container .card {
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 0px 1px #6e6d7a;
+          box-shadow: 0px 0px 0px 1px #6e6d7a;
+  border-radius: .5rem;
+  padding: 1rem;
+  color: #2C394B;
+}
+
+.dashboard__content--container .card:hover {
+  -webkit-box-shadow: 0px 0px 0px 2px #dc965a;
+          box-shadow: 0px 0px 0px 2px #dc965a;
+}
+
+.dashboard__content--container .card--name {
+  margin-left: 1rem;
+}
+
+.dashboard__content--container .card--name h2 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.dashboard__content--container .card--name p {
+  color: #6e6d7a;
+}
+
+.dashboard__content--container .card--icon {
+  width: 2rem;
+}
+/*# sourceMappingURL=dashboard.css.map */

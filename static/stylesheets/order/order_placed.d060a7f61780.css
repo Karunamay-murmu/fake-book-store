@@ -1,0 +1,25 @@
+.order-confirm {
+  padding: 2rem;
+  -webkit-box-shadow: 0 0 0 1px #e7e7e9;
+          box-shadow: 0 0 0 1px #e7e7e9;
+  border-radius: .5rem;
+  width: 100%;
+  margin: 5rem auto;
+}
+
+.order-confirm svg {
+  fill: #32CD32;
+}
+
+.order-confirm a {
+  margin-top: 2rem;
+}
+
+.order-confirm--return {
+  margin-top: 2rem;
+}
+
+.order-confirm--message {
+  text-align: center;
+}
+/*# sourceMappingURL=order_placed.css.map */

@@ -1,0 +1,220 @@
+@import "../global/variables.scss";
+
+.product--container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+
+    @media only screen and (max-width: $breakpoint-md) {
+        grid-template-columns: auto;
+    }
+
+    .product {
+
+
+        &--title {
+            font-size: 2rem;
+            font-family: $font-serif;
+
+            @media only screen and (max-width: $breakpoint-m) {
+                font-size: 1.5rem;
+            }
+
+            a {
+                font-weight: 600;
+                color: $text-dark;
+            }
+        }
+
+
+        &__spec {
+            &--author {
+                font-size: .875rem;
+                font-weight: 500;
+                color: $text-light-dark;
+            }
+        }
+
+        &__image {
+            justify-self: end;
+            max-width: 31.25rem;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+
+            @media only screen and (max-width: $breakpoint-md) {
+                justify-self: center;
+            }
+
+            @media only screen and (max-width: $breakpoint-sm) {
+                max-width: 10rem;
+            }
+
+            &--featured {
+                margin: 0 auto;
+                max-width: 17.5rem;
+                width: 100%;
+                overflow: hidden;
+                object-fit: contain;
+            }
+
+            img {
+                width: 100%;
+                object-fit: contain;
+                position: sticky;
+                top: 1rem;
+            }
+
+            &--other {
+                width: 5rem;
+                height: 5rem;
+            }
+        }
+
+        &__price {
+            font-size: 1rem;
+            margin: .5rem 0;
+
+            &--discount {
+                margin-right: .5rem;
+                font-size: 1.5rem;
+                color: $primary;
+                font-weight: 500;
+            }
+
+            &--regular {
+                color: $text-light-dark;
+            }
+        }
+
+        &__meta {
+
+            &--shipping,
+            &--tax-info {
+                font-size: .875rem;
+                color: $text-light-dark;
+                font-weight: 400;
+            }
+
+            &--stock {
+                margin: .5rem 0;
+            }
+
+            margin-bottom: .5rem;
+        }
+
+        &--qty {
+            border-radius: .3125rem;
+            width: 7rem;
+
+            &--btn {
+                border: none;
+                outline: none;
+                border-radius: 50%;
+                background-color: $text-light;
+                padding: 1rem;
+                position: relative;
+                width: 1.2rem;
+                height: 1.2rem;
+                cursor: pointer;
+                overflow: hidden;
+
+
+                &:hover {
+                    background-color: $hover;
+
+                    & {
+                        svg {
+                            color: #ffffff;
+
+                        }
+                    }
+
+                }
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    left: 50%;
+                    color: $text-light-dark;
+                    width: .8rem;
+                    height: .8rem;
+                }
+            }
+
+            &--amount {
+                width: 100%;
+                text-align: center;
+                padding: .8rem;
+            }
+        }
+
+        &__information {
+            margin-top: 2rem;
+            max-width: 34rem;
+            width: 100%;
+
+            @media only screen and (max-width: $breakpoint-md) {
+                max-width: 100%;
+            }
+
+            &--header {
+                display: block;
+                margin-bottom: .5rem;
+                font-weight: 500;
+            }
+
+            &--wrapper {
+                margin-top: .2rem;
+
+                ul {
+                    padding: 0 0 0 3rem;
+
+                    li {
+                        list-style: disc;
+                        margin-bottom: .2rem;
+
+                        span {
+                            font-family: "Roboto", sans-serif;
+                            color: $text-light-dark;
+                            margin-left: 0.3rem;
+                            font-weight: 300;
+
+                        }
+                    }
+                }
+            }
+
+            // &--description {
+            //     width: 30rem;
+            //     font-weight: 300;
+            // }
+        }
+
+        &--add-to-cart {
+            display: grid;
+            grid-template-columns: auto auto auto 1fr;
+            grid-gap: 1rem;
+
+            .button-add-to-wishlist {
+                width: 8.75rem;
+            }
+
+            @media only screen and (max-width: $breakpoint-lg) {
+                grid-template-columns: auto !important;
+            }
+
+            @media only screen and (max-width: $breakpoint-md) {
+                grid-template-columns: auto auto auto 1fr !important;
+
+            }
+
+            @media only screen and (max-width: $breakpoint-sm) {
+                grid-template-columns: auto !important;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,cAAc,CAAC;EACX,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CCKZ,OAAO;EDJhB,aAAa,EAAE,KAAK;EACpB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,SAAS;CAiBpB;;AAtBD,AAOI,cAPU,CAOV,GAAG,CAAC;EACA,IAAI,EAAE,OAAO;CAChB;;AATL,AAWI,cAXU,CAWV,CAAC,CAAC;EACE,UAAU,EAAE,IAAI;CACnB;;AAEA,AAAD,sBAAS,CAAC;EACN,UAAU,EAAE,IAAI;CACnB;;AACA,AAAD,uBAAU,CAAC;EACP,UAAU,EAAE,MAAM;CACrB",
+    "sources": [
+        "order_placed.scss",
+        "../global/variables.scss"
+    ],
+    "names": [],
+    "file": "order_placed.css"
+}

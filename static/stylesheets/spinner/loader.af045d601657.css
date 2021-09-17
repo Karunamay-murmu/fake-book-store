@@ -1,0 +1,71 @@
+.loader {
+  width: 100%;
+  height: 100%;
+}
+
+.loader--ball {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: auto;
+  border: 3.5px solid transparent;
+  border-top-color: #156B6A;
+  border-right-color: #dc965a;
+  border-bottom-color: #d5e5b5;
+  border-left-color: #e7e7e9;
+  border-radius: 100%;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes bouncer {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-2rem);
+            transform: translateY(-2rem);
+  }
+}
+
+@keyframes bouncer {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-2rem);
+            transform: translateY(-2rem);
+  }
+}
+/*# sourceMappingURL=loader.css.map */

@@ -1,0 +1,122 @@
+.form-container {
+  width: 100%;
+}
+
+.form-container .form .field__container {
+  margin-bottom: 1.5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr;
+      grid-template-columns: auto 1fr;
+  grid-gap: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .form-container .form .field__container {
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+    grid-gap: 1rem;
+  }
+  .form-container .form .field__container--header {
+    justify-self: flex-start !important;
+  }
+}
+
+.form-container .form .field__container--header {
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+  justify-self: flex-end;
+  font-weight: 500;
+}
+
+.form-container .form .field__container--body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(15rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-gap: 1.5rem;
+  margin-top: .5rem;
+}
+
+.form-container .form .field__container--body--ad {
+      grid-template-areas: "address1 address2" "landmark country" "city zip" "delivery delivery";
+}
+
+@media only screen and (max-width: 992px) {
+  .form-container .form .field__container--body--ad {
+        grid-template-areas: "address1" "address2" "landmark" "country" "city" "zip" "delivery";
+  }
+}
+
+.form-container .form .field__wrapper {
+  margin-bottom: 0 !important;
+}
+
+.form-container .form .field__wrapper--address1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: address1;
+}
+
+.form-container .form .field__wrapper--address2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: address2;
+}
+
+.form-container .form .field__wrapper--city {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: city;
+}
+
+.form-container .form .field__wrapper--zip {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: zip;
+}
+
+.form-container .form .field__wrapper--landmark {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: landmark;
+}
+
+.form-container .form .field__wrapper--delivery {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: delivery;
+}
+
+.form-container .form .field__wrapper--country {
+  position: relative;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: country;
+}
+
+.form-container .form .field__wrapper--country select {
+  background-color: #ffffff;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+}
+
+.form-container .form .field__wrapper--country--dropdown {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #6e6d7a;
+  pointer-events: none;
+}
+
+.form-container .form__btn {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+/*# sourceMappingURL=address_form.css.map */

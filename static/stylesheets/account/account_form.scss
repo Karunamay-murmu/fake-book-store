@@ -1,0 +1,37 @@
+@import "../global/variables.scss";
+
+.form-container {
+    max-width: 25rem;
+    width: 100%;
+    margin: auto;
+
+    .form {
+        &__header {
+            margin: 2rem 0;
+            p {
+                color: $text-light-dark;
+            }
+        }
+
+        &__option {
+            margin: -1.5rem 0 0 0;
+
+            &--checkbox {
+                label {
+                    color: $text-light-dark;
+                    margin: 0 0 -.5rem .5rem;
+                }
+                input {
+                    margin-top: 3px;
+                }
+            }
+        }
+
+        &__btn {
+            margin-top: 2rem;
+            .button {
+                width: 47.5%;
+            }
+        }
+    }
+}

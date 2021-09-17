@@ -1,0 +1,176 @@
+.payment-form-container {
+  max-width: 30rem;
+  width: 100%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding-top: 2rem;
+}
+
+.payment-form-container #id_payment-form-container {
+  position: relative;
+}
+
+.payment-form-container .form-container {
+  position: relative;
+  width: 100%;
+}
+
+.payment-form-container .form-container--lock {
+  width: 3rem;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  cursor: not-allowed;
+}
+
+.payment-form-container .form-container--disable-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: .3125rem;
+}
+
+.payment-form-container #id_form-loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+.payment-form-container #id_form-loading-spinner #id_payment-processing-message {
+  font-size: .75rem;
+  margin-top: .5rem;
+  font-weight: 500;
+  color: #156B6A;
+}
+
+.payment-form-container .form {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "card card" "expiry cvc" "btn btn";
+  grid-gap: .8rem;
+  grid-column-gap: 1.2rem;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width: 992px) {
+  .payment-form-container .form {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: "card" "expiry" "cvc" "btn";
+  }
+}
+
+.payment-form-container .form__fields {
+  position: relative;
+}
+
+.payment-form-container .form__fields label {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  margin-bottom: .5rem;
+  display: block;
+  position: absolute;
+  top: .8rem;
+  left: .8rem;
+  font-weight: 500;
+  color: #6e6d7a;
+}
+
+.payment-form-container .form__fields--card {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: card;
+}
+
+.payment-form-container .form__fields--expiry {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: expiry;
+}
+
+.payment-form-container .form__fields--cvc {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: cvc;
+}
+
+.payment-form-container .form__fields--btn {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: btn;
+}
+
+.payment-form-container .form__element {
+  border-radius: .3125rem;
+  padding: 2.7rem .8rem .8rem;
+  -webkit-box-shadow: 0 0 0px 2px #e7e7e9;
+          box-shadow: 0 0 0px 2px #e7e7e9;
+  width: 100%;
+  cursor: pointer;
+}
+
+.payment-form-container .form__element--focus {
+  -webkit-box-shadow: 0 0 0px 2px #156B6A !important;
+          box-shadow: 0 0 0px 2px #156B6A !important;
+}
+
+.payment-form-container .form__element--invalid {
+  -webkit-box-shadow: 0 0 0px 2px #d11a2a !important;
+          box-shadow: 0 0 0px 2px #d11a2a !important;
+}
+
+.payment-form-container .form__element--error {
+  color: #d11a2a;
+  text-align: left;
+  font-size: .875rem;
+  line-height: .875rem;
+  margin-top: .5rem;
+}
+
+.payment-form-container .form__element--btn {
+  width: 100%;
+  padding: .8rem;
+  font-size: 1rem;
+  outline: none;
+  border-radius: .5rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  background-color: #156B6A;
+  color: #ffffff;
+}
+
+.payment-form-container .form__element--btn:hover {
+  -webkit-filter: contrast(115%);
+          filter: contrast(115%);
+}
+
+.result-message {
+  line-height: 22px;
+  font-size: 16px;
+}
+
+.result-message a {
+  color: #596fd6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#payment-request-button {
+  margin-bottom: 32px;
+}
+/*# sourceMappingURL=payment.css.map */

@@ -1,0 +1,35 @@
+.form-container {
+  max-width: 25rem;
+  width: 100%;
+  margin: auto;
+}
+
+.form-container .form__header {
+  margin: 2rem 0;
+}
+
+.form-container .form__header p {
+  color: #6e6d7a;
+}
+
+.form-container .form__option {
+  margin: -1.5rem 0 0 0;
+}
+
+.form-container .form__option--checkbox label {
+  color: #6e6d7a;
+  margin: 0 0 -.5rem .5rem;
+}
+
+.form-container .form__option--checkbox input {
+  margin-top: 3px;
+}
+
+.form-container .form__btn {
+  margin-top: 2rem;
+}
+
+.form-container .form__btn .button {
+  width: 47.5%;
+}
+/*# sourceMappingURL=account_form.css.map */

@@ -1,0 +1,112 @@
+@import "../global/variables.scss";
+
+.form-container {
+    width: 100%;
+
+
+    .form {
+        .field {
+            &__container {
+                margin-bottom: 1.5rem;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                grid-gap: 2rem;
+
+                @media only screen and (max-width: $breakpoint-md) {
+                    grid-template-columns: auto;
+                    grid-gap: 1rem;
+                    &--header {
+                        justify-self: flex-start !important;
+                    }
+                }
+
+                &--header {
+                    font-size: 1.1rem;
+                    line-height: 1.1rem;
+                    justify-self: flex-end;
+                    font-weight: 500;
+                }
+
+                &--body {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+                    grid-gap: 1.5rem;
+                    margin-top: .5rem;
+
+                    &--ad {
+                        grid-template-areas:
+                            "address1 address2"
+                            "landmark country"
+                            "city zip"
+                            "delivery delivery"
+                        ;
+
+                        @media only screen and (max-width: $breakpoint-lg) {
+                            grid-template-areas:
+                                "address1"
+                                "address2"
+                                "landmark"
+                                "country"
+                                "city"
+                                "zip"
+                                "delivery"
+                            ;
+                        }
+                    }
+                }
+            }
+
+            &__wrapper {
+                margin-bottom: 0 !important;
+
+                &--address1 {
+                    grid-area: address1;
+                }
+
+                &--address2 {
+                    grid-area: address2;
+                }
+
+                &--city {
+                    grid-area: city;
+                }
+
+                &--zip {
+                    grid-area: zip;
+                }
+
+                &--landmark {
+                    grid-area: landmark;
+                }
+
+                &--delivery {
+                    grid-area: delivery;
+                }
+
+                &--country {
+                    position: relative;
+                    grid-area: country;
+
+                    select {
+                        background-color: $white;
+                        appearance: none;
+                        cursor: pointer;
+                    }
+
+                    &--dropdown {
+                        position: absolute;
+                        top: 50%;
+                        right: 1rem;
+                        transform: translateY(-50%);
+                        color: $text-light-dark;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+
+        &__btn {
+            justify-content: flex-end;
+        }
+    }
+}

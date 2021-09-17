@@ -1,0 +1,167 @@
+@import "../global/variables.scss";
+
+
+
+.shop {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    grid-gap: 1rem;
+    grid-template-areas: "filter products";
+    margin: 1rem 0;
+
+    @media only screen and (max-width: $breakpoint-md) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "filter"
+            "products"
+        ;
+    }
+
+    &--filter-container,
+    &--products-container {
+        flex-grow: 1;
+    }
+
+    &--filter-container {
+        grid-area: filter;
+
+        .aside {
+            border: 1px solid $text-light;
+            border-radius: .3125rem;
+
+            &--header {
+                padding: 1rem;
+                border-bottom: 1px solid $text-light;
+
+                svg {
+                    cursor: pointer;
+                    padding: .2rem;
+                }
+            }
+
+            &--link-wrapper {
+                overflow: hidden;
+                border-bottom: 1px solid $text-light;
+                max-height: 0;
+                transition: max-height 150ms;
+
+                a {
+                    padding: 1rem;
+                    font-size: .875rem;
+                }
+
+                .filter {
+                    &__form {
+                        padding: 1rem;
+                        width: 100%;
+
+                        &__input {
+                            position: relative;
+
+                            input[type=range] {
+                                position: absolute;
+                                top: 0;
+                                bottom: 0;
+                                margin: auto;
+                                width: 100%;
+                                appearance: none;
+                                background-color: transparent;
+                                outline: none;
+                                border: none;
+                                pointer-events: none;
+
+                                &::-webkit-slider-thumb {
+                                    appearance: none;
+                                    width: 1rem;
+                                    height: 1rem;
+                                    background-color: $primary;
+                                    border-radius: 50%;
+                                    cursor: pointer;
+                                    pointer-events: auto;
+                                    margin-top: -5.25px;
+                                }
+
+                                &::-moz-slider-thumb {
+                                    appearance: none;
+                                    width: 1rem;
+                                    height: 1rem;
+                                    background-color: $primary;
+                                    border-radius: 50%;
+                                    cursor: pointer;
+                                    pointer-events: auto;
+                                    margin-top: -5.25px;
+
+
+                                }
+
+                                &::-ms-slider-thumb {
+                                    appearance: none;
+                                    width: 1rem;
+                                    height: 1rem;
+                                    background-color: $primary;
+                                    border-radius: 50%;
+                                    cursor: pointer;
+                                    pointer-events: auto;
+                                    margin-top: -5.25px;
+
+
+                                }
+
+                                &::-webkit-slider-runnable-track {
+                                    appearance: none;
+                                    height: 5px;
+                                }
+
+                                &::-moz-range-track {
+                                    appearance: none;
+                                    height: 5px;
+                                }
+
+                                &::-ms-track {
+                                    appearance: none;
+                                    height: 5px;
+                                }
+                            }
+                        }
+
+                        .sider-track {
+                            width: 100%;
+                            height: 5px;
+                            background-color: $primary-low;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            margin: auto;
+                            border-radius: .3125rem;
+                        }
+
+                        &--btn {
+                            margin-top: 2rem;
+
+                            button {
+                                margin-right: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .hide-filter {
+                border-bottom: 0;
+            }
+        }
+    }
+
+    &--products-container {
+        grid-area: products;
+
+        .page-header {
+            margin: 0 0 2rem;
+        }
+    }
+
+    .pagination {
+        margin: 2rem 0;
+        text-align: center;
+    }
+}

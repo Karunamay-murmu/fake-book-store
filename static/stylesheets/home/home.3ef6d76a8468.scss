@@ -1,0 +1,139 @@
+@import "../global/variables.scss";
+
+.section {
+    &__category {
+        &--wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+            grid-gap: 1rem;
+        }
+
+        &--name {
+            border: 1px solid $primary;
+            padding: 2rem;
+            border-radius: .5rem;
+            text-align: center;
+            height: 100%;
+
+            &:hover {
+                box-shadow: 0 0 0 3px $primary-low;
+            }
+
+            h4 {
+                height: 100%;
+            }
+        }
+
+        &--featured {
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+            grid-gap: 1rem;
+            
+            @media only screen and (max-width: $breakpoint-ms) {
+                grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            }
+
+            &--card {
+                padding: 1rem;
+                background-color: $primary-low;
+                border-radius: .5rem;
+
+                @media only screen and (max-width: $breakpoint-ms) {
+                    flex-wrap: wrap-reverse;
+                    justify-content: center;
+                }
+            }
+
+            &--dis {
+                width: 100%;
+            }
+        }
+    }
+
+    &__featured {
+        &--dis {
+            .product-wrapper {
+                grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            }
+            @media only screen and (max-width: $breakpoint-md) {
+                flex-direction: column-reverse;
+            }
+
+        }
+
+    }
+
+    &__deals {
+        &--card {
+            background-color: $primary-low;
+            border-radius: .5rem;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto;
+            grid-gap: 1rem;
+            width: 100%;
+
+            @media only screen and (max-width: $breakpoint-sm) {
+                grid-template-columns: 1fr;
+            }
+
+            .product {
+                &--btn {
+                    margin-top: auto;
+                    @media only screen and (max-width: $breakpoint-sm) {
+                        margin-top: 2rem;
+
+                    }
+                }
+
+                &__price {
+                    margin: .5rem 0 0;
+
+                    &--discount {
+                        font-size: 1.5rem;
+                        margin-right: .5rem;
+                    }
+                }
+
+                &__image {
+                    text-align: center;
+                    img {
+                        object-fit: contain;
+                    }
+                }
+
+            }
+        }
+
+        &--wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(auto, 28.33rem));
+            grid-gap: 1rem;
+        }
+    }
+
+}
+
+.dis-card {
+    padding: 2rem;
+    background-color: $primary-low;
+    border-radius: .5rem;
+    width: 19.5rem;
+    margin-left: 1.5rem;
+    align-self: flex-start;
+
+    &--btn {
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    @media only screen and (max-width: $breakpoint-md) {
+        margin: 0 0 1.5rem;
+    }
+
+    @media only screen and (max-width: $breakpoint-sm) {
+        width: 100%;
+    }
+}
