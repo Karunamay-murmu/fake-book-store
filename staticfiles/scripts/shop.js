@@ -2,17 +2,12 @@ const expand = document.querySelectorAll('.expand-filter')
 expand.forEach(btn => {
     btn.addEventListener('click', () => {
         const accordion = btn.parentElement.nextElementSibling;
-        // btn.innerHTML =
-        //     '<path d="M0 0h24v24H0V0z" fill="none" /><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />'
         btn.innerHTML = '<path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 13H5v-2h14v2z"/>'
         accordion.classList.toggle('hide-filter')
         if (accordion.classList.contains('hide-filter')) {
-            // accordion.style.maxHeight = 0 + 'px';
             accordion.style.maxHeight = accordion.scrollHeight + 'px';
         } else {
             accordion.style.maxHeight = 0 + 'px';
-            // accordion.style.maxHeight = accordion.scrollHeight + 'px';
-            // btn.innerHTML = '<path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 13H5v-2h14v2z"/>'
             btn.innerHTML =
                 '<path d="M0 0h24v24H0V0z" fill="none" /><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />'
         }
