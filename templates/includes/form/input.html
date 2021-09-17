@@ -1,0 +1,16 @@
+<div class="field__wrapper flex flex-column">
+    <label for="{{input.id_for_label}}" class="field--label">{{label}}</label>
+    {{input}}
+    {% if errors %}
+    <div class="field--error form__errors">
+        {% for error in errors %}
+        <span>{{error}}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if help_text %}
+    <span class="field--help-text">
+        {{help_text|safe}}
+    </span>
+    {% endif %}
+</div>

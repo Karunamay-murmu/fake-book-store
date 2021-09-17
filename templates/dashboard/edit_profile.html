@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Edit Profile
+{% endblock title %}
+
+{% block body %}
+<div class='form-container'>
+    <header class="form__header page-header">
+        <h2 class="fw-500">Update Profile</h2>
+        <p>Edit your profile details</p>
+    </header>
+    {% include 'includes/form/non_field_error.html' %}
+    <form action={{request.get_full_path}} method="post"
+     class="form">
+        {% include 'includes/form/snippet.html' %}
+        <div class="form__btn flex justify-end">
+            <button type="submit" class="form__btn--submit button button-primary-bg">Update Profile</button>
+        </div>
+    </form>
+</div>
+{% endblock body %}

@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if 'edit' in request.META.QUERY_STRING %}Edit Address{% else %}Add Address{% endif %}
+{% endblock title %}
+
+{% block body %}
+<div class="content-container">
+    <header class="page-header">
+        <h2 class="fw-500">Add a new address</h2>
+        <p>Add a new customer and delivery address </p>
+    </header>
+    <div class='form-container'>
+        {% include 'includes/form/non_field_error.html' %}
+        <form action="{{request.get_full_path}}" method="post" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field__container">
+                <div class="field__container--header">Personal Details</div>
+                <div class="field__container--body field__container--body--pd">
+                    <div class="field__wrapper flex flex-column">
+                        <label for="{{form.name.id_for_label}}" class="field--label">Full name</label>
+                        {{form.name}}
+                        {% if form.name.errors %}
+                        <div class="field--error form__errors" data-for="{{form.name.id_for_label}}">
+                            {% for error in form.name.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.name.help_text %}
+                        <span class="field--help-text">
+                            {{form.name.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="field__wrapper flex flex-column">
+                        <label for="{{form.email.id_for_label}}" class="field--label">Email address</label>
+                        {{form.email}}
+                        {% if form.email.errors %}
+                        <div class="field--error form__errors" data-for="{{form.email.id_for_label}}">
+                            {% for error in form.email.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.email.help_text %}
+                        <span class="field--help-text">
+                            {{form.email.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="field__wrapper flex flex-column">
+                        <label for="{{form.phone.id_for_label}}" class="field--label">Phone number</label>
+                        {{form.phone}}
+                        {% if form.phone.errors %}
+                        <div class="field--error form__errors" data-for="{{form.phone.id_for_label}}">
+                            {% for error in form.phone.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.phone.help_text %}
+                        <span class="field--help-text">
+                            {{form.phone.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="field__container flex">
+                <div class="field__container--header">Address Details</div>
+                <div class="field__container--body field__container--body--ad">
+                    <div class="field__wrapper field__wrapper--address1 flex flex-column">
+                        <label for="{{form.address1.id_for_label}}" class="field--label">Address Line 1</label>
+                        {{form.address1}}
+                        {% if form.address1.errors %}
+                        <div class="field--error form__errors" data-for="{{form.address1.id_for_label}}">
+                            {% for error in form.address1.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.address1.help_text %}
+                        <span class="field--help-text">
+                            {{form.address1.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="field__wrapper field__wrapper--address2 flex flex-column">
+                        <label for="{{form.address2.id_for_label}}" class="field--label">Address Line 2</label>
+                        {{form.address2}}
+                        {% if form.address2.errors %}
+                        <div class="field--error form__errors" data-for="{{form.address2.id_for_label}}">
+                            {% for error in form.address2.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.address2.help_text %}
+                        <span class="field--help-text">
+                            {{form.address2.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="field__wrapper field__wrapper--landmark flex flex-column">
+                        <label for="{{form.landmark.id_for_label}}" class="field--label">Landmark</label>
+                        {{form.landmark}}
+                        {% if form.landmark.errors %}
+                        <div class="field--error form__errors" data-for="{{form.landmark.id_for_label}}">
+                            {% for error in form.landmark.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.landmark.help_text %}
+                        <span class="field--help-text">
+                            {{form.landmark.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="field__wrapper field__wrapper--country flex flex-column">
+                        <label for="{{form.country.id_for_label}}" class="field--label">Country</label>
+                        {{form.country}}
+                        <div class="icon-small field__wrapper--country--dropdown">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-down"
+                                class="svg-inline--fa fa-chevron-down fa-w-14" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        {% if form.country.errors %}
+                        <div class="field--error form__errors" data-for="{{form.country.id_for_label}}">
+                            {% for error in form.country.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.country.help_text %}
+                        <span class="field--help-text">
+                            {{form.country.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="field__wrapper field__wrapper--city flex flex-column">
+                        <label for="{{form.city.id_for_label}}" class="field--label">City</label>
+                        {{form.city}}
+                        {% if form.city.errors %}
+                        <div class="field--error form__errors" data-for="{{form.city.id_for_label}}">
+                            {% for error in form.city.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.city.help_text %}
+                        <span class="field--help-text">
+                            {{form.city.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="field__wrapper field__wrapper--zip flex flex-column">
+                        <label for="{{form.zip_code.id_for_label}}" class="field--label">Zip code</label>
+                        {{form.zip_code}}
+                        {% if form.zip_code.errors %}
+                        <div class="field--error form__errors" data-for="{{form.zip_code.id_for_label}}">
+                            {% for error in form.zip_code.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.zip_code.help_text %}
+                        <span class="field--help-text">
+                            {{form.zip_code.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="field__wrapper field__wrapper--delivery flex flex-column">
+                        <label for="{{form.delivery_instruction.id_for_label}}" class="field--label">Delivery
+                            Instruction</label>
+                        {{form.delivery_instruction}}
+                        {% if form.delivery_instruction.errors %}
+                        <div class="field--error form__errors" data-for="{{form.delivery_instruction.id_for_label}}">
+                            {% for error in form.delivery_instruction.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if form.delivery_instruction.help_text %}
+                        <span class="field--help-text">
+                            {{form.delivery_instruction.help_text|safe}}
+                        </span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="form__btn flex">
+                <button type="submit" class="form__btn--submit button button-primary-bg">
+                    {% if 'edit' in request.META.QUERY_STRING %}
+                    Save
+                    {% else %}
+                    Add Address
+                    {% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<link rel="stylesheet" href={% static 'stylesheets/form/form.css' %}>
+<link rel="stylesheet" href={% static 'stylesheets/dashboard/address_form.css' %}>
+{% endblock body %}

@@ -1,0 +1,50 @@
+{% load static %}
+<div class="section__category--container">
+    <div class="section__category--wrapper justify-center">
+        {% for category in categories|slice:":6" %}
+        <a href="{% url 'store:shop' %}?filter=1&category={{category.slug}}&c_name={{category.name}}" class="section__category--name tc-primary">
+            <h4 class='fw-500 flex justify-center center-align'>
+                {{category.name|title}}
+            </h4>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="section__category--featured">
+        <div class="flex section__category--featured--card center-align justify-between">
+            <div>
+                <h3 class="fw-500">Best Cookbooks</h3>
+                <a href="" class="tc-light-dark link-hover">Shop Now</a>
+            </div>
+            <div>
+                <img src="media/images/img1-36.png" alt="">
+            </div>
+        </div>
+        <div class="flex section__category--featured--card center-align justify-between">
+            <div>
+                <h3 class="fw-500">Best Action Adventure</h3>
+                <a href="" class="tc-light-dark link-hover">Shop Now</a>
+            </div>
+            <div>
+                <img src="media/images/img1-37.png" alt="">
+            </div>
+        </div>
+        <div class="flex section__category--featured--card center-align justify-between">
+            <div>
+                <h3 class="fw-500">Best Biographies</h3>
+                <a href="" class="tc-light-dark link-hover">Shop Now</a>
+            </div>
+            <div>
+                <img src="media/images/img1-38.png" alt="">
+            </div>
+        </div>
+        <div class="flex section__category--featured--card center-align justify-between">
+            <div>
+                <h3 class="fw-500">New Book Available</h3>
+                <a href="" class="tc-light-dark link-hover">Shop Now</a>
+            </div>
+            <div>
+                <img src="media/images/img1-39.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

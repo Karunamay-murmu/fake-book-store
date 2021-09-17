@@ -1,0 +1,76 @@
+<div class="accordion" id="id_accordion-shipping">
+    <div class="accordion__header">
+        <div class="accordion__header__container">
+            <div class="accordion__header--icon">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt"
+                    class="svg-inline--fa fa-map-marker-alt fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512">
+                    <path fill="currentColor"
+                        d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
+                    </path>
+                </svg>
+            </div>
+            <header class="accordion__header--name">shipping address</header>
+            <div class="flex accordion--info">
+                <div class="accordion--info1">
+                    {% for address in addresses %}
+                    {% if address.default %}
+                    <div class="shipping" id="id_shipping-address" data-address-id="{{address.id}}"
+                        data-customer-id="{{address.customer.id}}" data-customer-email="{{address.customer.email}}"
+                        data-customer-phone="{{address.customer.phone}}">
+                        <div class="shipping--customer">
+                            <span data-name="name">{{address.customer.name}}</span>
+                        </div>
+                        <div class="fs-14 fw-500 shipping__address">
+                            <span data-address="line1">{{address.address1}}, {{address.address2}}</span>
+                            <span data-address="line2">{{address.landmark}},</span>
+                            <span data-address="city">{{address.city}},</span>
+                            <span data-address="zip">{{address.zip_code}},</span>
+                            <span data-country-code="{{address.country}}"
+                                data-address="country">{{address.country.name}}</span>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                {% comment %} <div class="accordion--info1 shipping">
+                    {% for address in addresses %}
+                    {% if address.default %}
+                    <div class="shipping--customer">
+                        <span>{{address.customer.name}}</span>
+                    </div>
+                    <div class="fs-14 fw-500 shipping__address">
+                        <span class="shipping__address--1">{{address.address1}}, {{address.address2}}</span>
+                        <span class="shipping__address--2">{{address.landmark}},</span>
+                        <span class="shipping__address--city">{{address.city}},</span>
+                        <span class="shipping__address--zip">{{address.zip_code}}</span>
+                        <span class="shipping__address--country">{{address.country.name}}</span>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div> {% endcomment %}
+            </div>
+        </div>
+        <div class="accordion__button">
+            <button type="button" id="id_toggle-accordion" class="button">Change</button>
+        </div>
+    </div>
+    <div class="accordion__content accordion__content--hide accordion__content--address">
+        {% for address in addresses %}
+        {% if not address.default %}
+        <a href="{% url 'account:profile:edit_address' %}?action=set_default&id={{address.id|urlencode}}">
+            <div class="accordion__content--wrapper">
+                <div>
+                    <span>{{address.customer.name}}</span>
+                </div>
+                <div class="fs-14 fw-500">
+                    <span>{{address.address1}}, {{address.address2}}</span>
+                    {% comment %} <span>{{address.landmark}},</span>
+                    <span>{{address.city}}, {{address.zip_code}}, {{address.country.name}}</span> {% endcomment %}
+                </div>
+            </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,20 @@
+    {% for message in messages %}
+    <div class="message--{{message.tags}}" data-level="{{message.level}}">
+        <div class="container-width" >
+            {% if message.level %}
+            <div class="message--wrapper">
+                <span>
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    Important:
+                    {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                    Attention:
+                    {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    Success:
+                    {% endif %}
+                </span>
+                {% endif %}
+                <span class="message--text">{{message|safe}}</sp>
+            </div>
+        </div>
+    </div>
+    {% endfor %}

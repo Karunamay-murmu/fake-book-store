@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'stylesheets/product/product_card.css' %}">
+<link rel="stylesheet" href="{% static 'stylesheets/home/home.css' %}">
+<link rel="stylesheet" href="{% static 'stylesheets/home/slider.css' %}">
+{% endblock stylesheets %}
+
+{% block script %}
+<script src="{% static 'scripts/class/cart.js' %}"></script>
+<script src="{% static 'scripts/home.js' %}"></script>
+{% endblock script %}
+
+{% block body %}
+{% comment %} <section>
+    {% include 'includes/section/section_hero.html' %}
+</section> {% endcomment %}
+<section class="section__trending">
+    {% include 'includes/section/section_header.html' with header='Trending Books' view_all_text='View All' %}
+    {% include 'includes/section/trending_section.html'%}
+</section>
+<section class="section__category">
+    {% url 'store:shop' as category_url%}
+    {% include 'includes/section/section_header.html' with header='Featured Categories' view_all_text='All Categories' url=category_url %}
+    {% include 'includes/section/category_section.html'%}
+</section>
+<section class="section__featured">
+    {% include 'includes/section/section_header.html' with header='Featured Books' %}
+    <div class="section__featured--dis flex">
+        {% include 'includes/section/featured_books.html'%}
+        {% include 'store/product/discount_card.html' %}
+    </div>
+</section>
+<section class="section__deals">
+    {% include 'includes/section/section_header.html' with header='Deals Of The Week' %}
+    <div class="section__deals--wrapper justify-center">
+        {% include 'includes/section/deals.html'%}
+    </div>
+</section>
+<section class="section__bestselling">
+    {% include 'includes/section/section_header.html' with header="Kid's Best Selling" %}
+    {% include 'includes/slider.html' %}
+    {% comment %} {% include 'includes/section/best_selling.html' with view_as="card-view" %} {% endcomment %}
+</section>
+{% endblock body %}

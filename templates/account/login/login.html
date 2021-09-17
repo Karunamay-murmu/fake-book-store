@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Login
+{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'stylesheets/account/account_form.css' %}">
+{% endblock stylesheets %}
+
+{% block body %}
+
+<div class='form-container'>
+    <header class="form__header">
+        <h2 class="fw-500">Welcome Back!</h2>
+        <p>Please Log in to your account.</p>
+    </header>
+    {% include 'includes/form/non_field_error.html' %}
+    <form action={{request.get_full_path}} method="post" class="form">
+        {% include 'includes/form/snippet.html' %}
+        <div class='form__option flex justify-between'>
+            <div class="form__option--checkbox flex">
+                <input type="checkbox" name="remember-login" id="id_remember-login">
+                <label for="id_remember-login" class="fs-14 fw-500">Remember me</label>
+            </div>
+            <a class="form__option--forget fs-14 fw-500" href="{% url 'account:reset_password' %}">Forgot password?</a>
+        </div>
+        <div class="form__btn flex justify-between">
+            <button type="submit" class="form__btn--submit button button-primary-bg">Login</button>
+            <a href={% url 'account:signup' %} role="button" class="form__btn--signup button">Create Account</a>
+        </div>
+    </form>
+</div>
+{% endblock body %}

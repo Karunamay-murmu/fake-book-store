@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Shop{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'stylesheets/product/product_card.css' %}">
+<link rel="stylesheet" href="{% static 'stylesheets/home/shop.css' %}">
+{% endblock stylesheets %}
+
+{% block script %}
+<script src="{% static 'scripts/shop.js' %}"></script>
+<script src="{% static 'scripts/class/cart.js' %}"></script>
+{% endblock script %}
+
+{% block body %}
+<div class="shop">
+    <div class="shop--filter-container">
+        {% include 'includes/filter/shop_side_filter.html' %}
+    </div>
+    <div class="shop--products-container">
+        {% include 'store/shop_product_list.html' with view_as='card-view' filter=filter %}
+    </div>
+</div>
+{% endblock body %}

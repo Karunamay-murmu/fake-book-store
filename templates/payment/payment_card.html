@@ -1,0 +1,38 @@
+<div class="payment-form-container">
+    {% comment %} {% include 'includes/spinner.html' %} {% endcomment %}
+
+    <div id="id_payment-error"></div>
+    <div id="id_payment-form-container">
+        <div id="id_form-loading-spinner">
+            {% include 'includes/spinner.html' %}
+        </div>
+        <div id="id_payment-processing-message"></div>
+        <div class="form-container" id="id_form-container">
+            {% comment %} <div id="id_form-container--disable" class="form-container--disable form-container--disable-bg">
+            </div>  {% endcomment %}
+            <form action="{% url 'payment:intent' %}" method="POST" id="id_payment-form" class="form">
+                <div class="form__fields form__fields--card">
+                    <label for="id_card-element">Card Number</label>
+                    <div id="id_card-element" class="form__element"></div>
+                    <p id="id_card-error" class="form__element--error" role="alert"></p>
+                </div>
+                <div class="form__fields form__fields--expiry">
+                    <label for="id_expiry-element">Expiry Date</label>
+                    <div id="id_expiry-element" class="form__element"></div>
+                    <p id="id_expiry-error" class="form__element--error" role="alert"></p>
+                </div>
+                <div class="form__fields form__fields--cvc">
+                    <label for="id_cvc-element">CVV or CVC</label>
+                    <div id="id_cvc-element" class="form__element"></div>
+                    <p id="id_cvc-error" class="form__element--error" role="alert"></p>
+                </div>
+                <div class="form__fields form__fields--btn">
+                    <button type="submit" id="id_paybtn" class="form__element--btn" data-url={% url 'payment:intent' %}>
+                        Pay <span id="id_payment-sub-total" class="sub-total">${{cart.get_total_price}}</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        {% comment %} {% include './payment_loading.html' %} {% endcomment %}
+    </div>
+</div>

@@ -1,0 +1,15 @@
+{% if 'c_name' in request.get_full_path %}
+<h2 class="fw-300" style="margin-bottom: 1rem;">Best {{request.GET.c_name|title}} Collections</h2>
+{% endif %}
+{% if 'author' in request.get_full_path %}
+<h2 class="fw-300" style="margin-bottom: 1rem;">{{request.GET.author|title}}'s Best Releases</h2>
+{% endif %}
+<div class="product-wrapper">
+    {% if not products|length %}
+    <h2 class="fw-500">No products avilable to purchase.<span class="fs-16 block fw-400">
+            <a href="{% url 'store:index' %}" class="link-hover">Back to homepage</a></span> </h2>
+    {% else %}
+    {% include 'store/product/product_wrapper.html' with view_as='card-view' %}
+    {% include 'includes/pagination.html' %}
+    {% endif %}
+</div>

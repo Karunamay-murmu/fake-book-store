@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Your Addresses{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'stylesheets/dashboard/address.css' %}">
+{% endblock stylesheets %}
+
+{% block body %}
+<div class="content-container">
+    <header class="page-header">
+        <h2 class="fw-500">
+            Your Addresses
+        </h2>
+        <p>Create and manage your delivery address</p>
+    </header>
+    <div class="address">
+        <div class="address--container">
+            <div class="address__card">
+                <div class="address__card--add">
+                    <a href="{% url 'account:profile:edit_address' %}?action=add" class="flex flex-column">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
+                            class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                            </path>
+                        </svg>
+                        <h2>Add new address</h2>
+                    </a>
+                </div>
+            </div>
+            {% for address in addresses %}
+            <div class="address__card flex flex-column">
+                {% if address.default %}
+                <header class="address__card--header">
+                    <div>Default</div>
+                </header>
+                {% endif %}
+                <div class="address__card__body flex flex-column">
+                    <div class="address__card__body--container">
+                        <div class="address__card__body--items">
+                            <h3>{{address.customer.name}}</h3>
+                        </div>
+                        <div class="address__card__body--items">{{address.address1}}</div>
+                        <div class="address__card__body--items">{{address.address2}}</div>
+                        <div class="address__card__body--items">{{address.landmark}}</div>
+                        <div class="address__card__body--items">
+                            <span>{{address.city}},</span>
+                            <span>{{address.zip_code}},</span>
+                            <span>{{address.country.name}}</span>
+                        </div>
+                        <div class="address__card__body--items">
+                            phone Number: {{address.customer.phone}}
+                        </div>
+                    </div>
+                    <div class="address__action flex">
+                        <div class="address__action--row">
+                            <a href="{% url 'account:profile:edit_address' %}?action=edit&id={{address.id|urlencode}}">
+                                Edit
+                            </a>
+                        </div>
+                        <div class="address__action--row"><a href="{% url 'account:profile:edit_address' %}?action=delete&id={{address.id|urlencode}}">Delete</a></div>
+                        {% if not address.default %}
+                        <div class="address__action--row"><a href="{% url 'account:profile:edit_address' %}?action=set_default&id={{address.id|urlencode}}">Set as default</a></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock body %}

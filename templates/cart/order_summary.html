@@ -1,0 +1,73 @@
+<div class='cart--order' id="id_cart-order">
+    <h3 class='cart--order--header fw-500'>Your Order</h3>
+    <div class='cart__product-wrapper'>
+        {% for item in cart %}
+        {% with item.product as product %}
+        <div class='cart__product' data-index={{product.id}}>
+            {% for image in product.image.all %}
+            {% if image.is_featured %}
+            <div class="cart__product--image">
+            <img src="{{image.image.url}}" alt="{{image.alt_text}}">
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class='cart__product--info-wrapper'>
+                <div class='cart__product--info--name'>
+                    <a class="tc-dark"
+                        href="{% url 'store:product_detail' type=product.product_type slug=product.slug %}">{{product.title}}</a>
+                </div>
+                <div class='cart__product--info--price'>
+                    <div class='cart__product--qty-multiplier'>
+                        ${{product.regular_price}}
+                        <span class='cart__product--qty'> x Qty: <span
+                                id='id_quantity{{product.id}}'>{{item.quantity}}</span></span>
+                    </div>
+                    <div class='cart__product--total-price'>Total:
+                        <span id='id_total-price{{product.id}}'>
+                            ${{item.total_price}}
+                        </span>
+                    </div>
+                </div>
+                <div class='cart__product__action flex center-align'>
+                    <div class='cart__product__action--btn cart-action-btn' data-qty='1' data-action="add"
+                        data-product-id={{product.id}} data-url={% url 'cart:add' %} role="button"
+                        onclick="cart.update(this)">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
+                            class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class='cart__product__action--btn cart-action-btn' data-qty='1' data-action="remove"
+                        role='button' data-product-id={{product.id}} data-url={% url 'cart:delete' %}
+                        onclick="cart.update(this)">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus"
+                            class="svg-inline--fa fa-minus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class='cart__product__action--btn--delete cart-action-btn' id='id_delete{{product.id}}'
+                        data-qty={{item.quantity}} role='button' data-action="delete" data-product-id={{product.id}}
+                        data-url={% url 'cart:delete' %} onclick="cart.update(this)" }>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm"
+                            fill="#000000">
+                            <path d="M0 0h24v24H0V0z" fill="none" />
+                            <path
+                                d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z" />
+                            </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endwith %}
+        {% endfor %}
+        {% csrf_token %}
+        <div class="cart--sub-total">Sub Total: <span id="id_cart_sub-total"
+                class="sub-total">${{cart.get_total_price}}</span></div>
+    </div>
+</div>

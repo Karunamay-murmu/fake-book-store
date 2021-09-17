@@ -1,0 +1,23 @@
+{% for product in products|slice:":3" %}
+<div class="section__deals--card product">
+    {% for image in product.image.all %}
+    {% if image.is_feature %}
+    <div class="product__image">
+        <img width="100" src="{{image.image.url}}" alt="{{image.alt_text}}">
+    </div>
+    {% endif %}
+    {% endfor %}
+    <div class="product--details flex flex-column">
+        <div class="fw-500">{{product.title}}</div>
+        <div class="product__price flex base-align">
+            <div class="product__price--discount tc-primary">${{product.discount_price}}</div>
+            <div class="product__price--regular"><s>${{product.regular_price}}</s></div>
+        </div>
+        <div class="product--btn">
+        {% include 'includes/button/add_to_cart.html' with button_class='button button-primary-bg' %}
+        </div>
+    </div>
+</div>
+{% empty %}
+<p>No product available to purchase</p>
+{% endfor %}

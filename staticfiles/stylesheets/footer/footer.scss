@@ -1,0 +1,137 @@
+@import "../global/variables.scss";
+
+footer {
+    .section {
+        &__newsletter {
+            background-color: $text-light;
+            &--container {
+                display: grid;
+                grid-template-columns: auto auto;
+                align-items: center;
+                grid-gap: 1.5rem;
+                padding: 3rem;
+                border-radius: .3125rem;
+                margin: 3rem auto 2rem;
+
+                @media only screen and (max-width: $breakpoint-m) {
+                    padding: 1rem;
+                }
+                @media only screen and (max-width: $breakpoint-md) {
+                    grid-template-columns: auto;
+                }
+            }
+
+            .newsletter-form {
+                .sub-form {
+                    display: grid;
+                    grid-template-columns: 1fr auto;
+                    grid-gap: 1rem;
+
+                    @media only screen and (max-width: $breakpoint-sm) {
+                        grid-template-columns: auto;
+
+                    }
+
+                    .field__wrapper {
+                        margin-bottom: 0;
+                    }
+
+                    label {
+                        display: none;
+                    }
+
+                    input {
+                        border-radius: .3125rem;
+                        border: 1px solid $primary;
+                        outline: none;
+                        padding: .907rem 1rem;
+                        flex-grow: 1;
+                        overflow: hidden;
+                        font-size: .875rem;
+
+                        &:focus {
+                            box-shadow: 0 0 0 3px $primary-low;
+                        }
+
+                        @media only screen and (max-width: $breakpoint-sm) {
+                            width: 100%;
+                        }
+                    }
+
+                    button {
+                        padding: .907rem 1rem !important;
+
+                        @media only screen and (max-width: $breakpoint-m) {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+
+            // @media only screen and (max-width: $breakpoint-lg) {
+            //     grid-template-columns: auto;
+            //     grid-template-areas:
+            //         "message"
+            //         "form"
+            //     ;
+
+            //     .newsletter-message {
+            //         text-align: center;
+            //     }
+            // }
+        }
+
+        &--footer-links {
+            @media only screen and (max-width: $breakpoint-lg) {
+                flex-direction: column;
+
+                .footer-col {
+                    padding: 1rem 0 !important;
+                }
+            }
+
+            .footer-col {
+                flex-grow: 1;
+
+                h1 {
+                    font-size: 2rem;
+                }
+
+                &:first-child {
+                    padding-top: 1rem;
+                }
+
+                &:not(:first-child) {
+                    padding: 1rem;
+                }
+
+                &--header {
+                    margin-bottom: 1rem;
+                }
+
+                &--wrapper {
+                    li {
+                        margin: .5rem 0;
+                    }
+
+                    a {
+                        color: $text-light-dark;
+
+                        &:hover {
+                            color: $text-dark;
+                            text-decoration: underline;
+                        }
+                    }
+
+                    &--contact {
+                        margin-top: 1rem;
+                    }
+                }
+            }
+        }
+
+        &--copyright {
+            padding: 2rem 0 3rem;
+        }
+    }
+}

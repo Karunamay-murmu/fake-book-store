@@ -1,0 +1,39 @@
+@import "../global/variables.scss";
+
+.loader {
+    width: 100%;
+    height: 100%;
+    
+    &--ball {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin: auto;
+        border: 3.5px solid transparent;
+        border-top-color: $primary-green;
+        border-right-color: $secondary-green;
+        border-bottom-color: $secondary-green-light;
+        border-left-color: $text-light;
+        border-radius: 100%;
+        animation: spin 1s linear infinite;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+
+    } 50% {
+        transform: rotate(180deg);
+
+    } 100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bouncer {
+    from {
+        transform: translateY(0);
+    } to {
+        transform: translateY(-2rem);
+    }
+}

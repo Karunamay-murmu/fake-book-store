@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'stylesheets/dashboard/dashboard.css' %}">
+{% endblock stylesheets %}
+{% block body %}
+<div class="dashboard content-container">
+    <div class="dashboard__header page-header">
+        <h2 class="fw-500">Your Account</h2>
+        <p>Manage your orders, account preference, security, and addresses</p>
+    </div>
+    <div class='dashboard__content'>
+        <div class="dashboard__content--container">
+            <a href="{% url 'order:all' %}" class="card flex">
+                <div class="card--icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="boxes"
+                        class="svg-inline--fa fa-boxes fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 576 512">
+                        <path fill="currentColor"
+                            d="M560 288h-80v96l-32-21.3-32 21.3v-96h-80c-8.8 0-16 7.2-16 16v192c0 8.8 7.2 16 16 16h224c8.8 0 16-7.2 16-16V304c0-8.8-7.2-16-16-16zm-384-64h224c8.8 0 16-7.2 16-16V16c0-8.8-7.2-16-16-16h-80v96l-32-21.3L256 96V0h-80c-8.8 0-16 7.2-16 16v192c0 8.8 7.2 16 16 16zm64 64h-80v96l-32-21.3L96 384v-96H16c-8.8 0-16 7.2-16 16v192c0 8.8 7.2 16 16 16h224c8.8 0 16-7.2 16-16V304c0-8.8-7.2-16-16-16z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="card--name">
+                    <h2>Your Orders</h2>
+                    <p>Track, return or buy things again</p>
+                </div>
+            </a>
+            <a href="{% url 'account:profile:edit_profile' username=request.user %}" class="card flex">
+                <div class="card--icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="key"
+                        class="svg-inline--fa fa-key fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512">
+                        <path fill="currentColor"
+                            d="M512 176.001C512 273.203 433.202 352 336 352c-11.22 0-22.19-1.062-32.827-3.069l-24.012 27.014A23.999 23.999 0 0 1 261.223 384H224v40c0 13.255-10.745 24-24 24h-40v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24v-78.059c0-6.365 2.529-12.47 7.029-16.971l161.802-161.802C163.108 213.814 160 195.271 160 176 160 78.798 238.797.001 335.999 0 433.488-.001 512 78.511 512 176.001zM336 128c0 26.51 21.49 48 48 48s48-21.49 48-48-21.49-48-48-48-48 21.49-48 48z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="card--name">
+                    <h2>Login & Security</h2>
+                    <p>Edit login, and profile information</p>
+                </div>
+            </a>
+            <a href="{% url 'account:profile:wishlist' %}" class="card flex">
+                <div class="card--icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="star"
+                        class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 576 512">
+                        <path fill="currentColor"
+                            d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="card--name">
+                    <h2>Your Wishlist</h2>
+                    <p>View and manage your wishlist products</p>
+                </div>
+            </a>
+            <a href="{% url 'account:profile:show_address' %}" class="card flex">
+                <div class="card--icon">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt"
+                        class="svg-inline--fa fa-map-marker-alt fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 384 512">
+                        <path fill="currentColor"
+                            d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="card--name">
+                    <h2>Your Address</h2>
+                    <p>Manage your delivery addresses</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock body %}

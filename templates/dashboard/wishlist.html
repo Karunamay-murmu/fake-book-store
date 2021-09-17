@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Your Wishlist
+{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'stylesheets/user/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'stylesheets/product/product_card.css' %}">
+{% endblock stylesheets %}
+
+{% block script %}
+<script src="{% static 'scripts/class/cart.js' %}"></script>
+{% endblock script %}
+
+{% block body %}
+<div class="dashboard content-container">
+    <div class="dashboard__header page-header">
+        <h1 class="fw-500">Your Wishlist</h1>
+        <p>View and manage your wishlist products</p>
+    </div>
+    <div class='dashboard__content'>
+        <div class='wishlist-products'>    
+        {% for product in products %}
+            {% include 'store/product/product_wrapper.html' with view_as="card-view" %}
+        {% empty %}
+        <div>No products has been added to your wishlist</div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock body %}

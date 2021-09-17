@@ -1,0 +1,5 @@
+<form action="{% url 'newsletter:sub' %}" method="post" class="sub-form flex justify-between wrap">
+    {% csrf_token %}
+    <input type="email" name="sub_email" placeholder="Enter Your Email" class="sub-form--input" aria-required="true" aria-label="Enter your email">
+    <button type="submit" class="button button-primary-bg sub-form--btn">Subscribe</button>
+</form>

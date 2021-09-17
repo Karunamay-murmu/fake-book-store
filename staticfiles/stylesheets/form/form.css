@@ -1,0 +1,94 @@
+.form-container {
+  margin: auto;
+  width: 25rem;
+}
+
+.form .field__wrapper {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.form .field--help-text {
+  font-size: .75rem;
+  margin-top: .2rem;
+  font-weight: 500;
+  color: #6e6d7a;
+}
+
+.form .field--label {
+  font-size: .9rem;
+  font-weight: 500;
+  color: #156B6A;
+  background: white;
+  position: absolute;
+  top: -.7rem;
+  left: .5rem;
+}
+
+.form .field--input {
+  border: none;
+  outline: none;
+  font-size: .875rem;
+  font-weight: 400;
+  color: #2C394B;
+  padding: .8rem .5rem .7rem;
+  -webkit-box-shadow: 0 0 0px 2px #e7e7e9;
+          box-shadow: 0 0 0px 2px #e7e7e9;
+  border-radius: .2rem;
+  font-family: 'Poppins', sans-serif;
+  resize: vertical;
+}
+
+.form .field--input::-webkit-input-placeholder {
+  color: #6e6d7a;
+}
+
+.form .field--input:-ms-input-placeholder {
+  color: #6e6d7a;
+}
+
+.form .field--input::-ms-input-placeholder {
+  color: #6e6d7a;
+}
+
+.form .field--input::placeholder {
+  color: #6e6d7a;
+}
+
+.form .field--input:focus {
+  -webkit-box-shadow: 0 0 0px 2px #156B6A;
+          box-shadow: 0 0 0px 2px #156B6A;
+}
+
+.form .field--error {
+  margin: .2rem 0 0;
+}
+
+.form--non-field-error {
+  margin: 1.5rem 0;
+  padding: .5rem 1rem;
+  color: #d11a2a;
+  background-color: #FFD2D2;
+  border-radius: .3125rem;
+}
+
+.form__errors {
+  color: #d11a2a;
+  font-size: .875rem;
+  font-weight: 500;
+  border-radius: .3125rem;
+}
+
+.form .error-input {
+  -webkit-box-shadow: 0 0 0 2px #d11a2a;
+          box-shadow: 0 0 0 2px #d11a2a;
+}
+
+.form .error-label {
+  color: #d11a2a;
+}
+
+.password-reset .field__wrapper {
+  margin-bottom: 1rem !important;
+}
+/*# sourceMappingURL=form.css.map */

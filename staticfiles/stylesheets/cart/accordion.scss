@@ -1,0 +1,67 @@
+@import "../global/variables.scss";
+
+.accordion {
+    padding: 1rem 2rem 1rem 6rem;;
+    border-radius: .3125rem;
+    box-shadow: 0 0 0px 1px $text-light;
+    position: relative;
+
+    &__header {
+
+        &--name {
+            text-transform: uppercase;
+            font-size: 1rem;
+            line-height: 1rem;
+        }
+        
+        &--info {
+            margin-top: .5rem;
+            width: 100%;
+        }
+
+        &--info1, &--info2 {
+            padding-right: 2rem;
+        }
+
+        &--icon {
+            position: absolute;
+            width: 1rem;
+            top: 1rem;
+            left: 2rem;
+        }
+    }
+
+    &__button {
+        width: 6.875rem;
+        height: 2.5rem;
+        padding: 0 1.5rem;
+        border: none;
+        text-transform: uppercase;
+        background-color: $text-light;
+        border-radius: .5rem;
+        outline: none;
+        cursor: pointer;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, calc(33% - 1rem));
+        grid-gap: .5rem;
+
+
+        &--hide {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.2s;
+            margin-top: 1rem;  
+        }
+
+        &--wrapper {
+            border: 1px solid $text-light;
+            padding: 1rem;
+            border-radius: .5rem;
+        }
+    }
+
+    
+}

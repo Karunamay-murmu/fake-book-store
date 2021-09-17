@@ -1,0 +1,90 @@
+@import "../global/variables.scss";
+
+.form-container {
+    margin: auto;
+    width: 25rem;
+}
+
+.form {
+    .field {
+        &__wrapper {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        &--help-text {
+            font-size: .75rem;
+            margin-top: .2rem;
+            font-weight: 500;
+            color: $text-light-dark;
+        }
+
+        &--label {
+            font-size: .9rem;
+            font-weight: 500;
+            color: $primary;
+            background: white;
+            position: absolute;
+            top: -.7rem;
+            left: .5rem;
+        }
+
+        &--input {
+            border: none;
+            outline: none;
+            font-size: .875rem;
+            font-weight: 400;
+            color: $text-dark;
+            padding: .8rem .5rem .7rem;
+            ;
+            box-shadow: 0 0 0px 2px $text-light;
+            border-radius: .2rem;
+            font-family: 'Poppins', sans-serif;
+            resize: vertical;
+
+
+            &::placeholder {
+                color: $text-light-dark;
+            }
+
+            &:focus {
+                box-shadow: 0 0 0px 2px $primary-green;
+
+            }
+        }
+
+
+        &--error {
+            margin: .2rem 0 0;
+        }
+    }
+
+    &--non-field-error {
+        margin: 1.5rem 0;
+        padding: .5rem 1rem;
+        color: $error;
+        background-color: $error-bg;
+        border-radius: .3125rem;
+    }
+
+    &__errors {
+        color: $error;
+        font-size: .875rem;
+        font-weight: 500;
+        border-radius: .3125rem;
+    }
+
+    .error-input {
+        box-shadow: 0 0 0 2px $error;
+    }
+
+    .error-label {
+        color: $error;
+    }
+}
+
+.password-reset {
+    .field__wrapper {
+        margin-bottom: 1rem !important;
+    }
+}

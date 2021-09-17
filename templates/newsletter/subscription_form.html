@@ -1,0 +1,7 @@
+<form action="{% url 'newsletter:sub' %}" method="post" class="sub-form form">
+    {% with subscription_form as form %}
+    {{form.error}}
+    {% include 'includes/form/snippet.html' %}
+    <button type="submit" class="button button-primary-bg sub-form--btn">Subscribe</button>    
+    {% endwith %}
+</form>

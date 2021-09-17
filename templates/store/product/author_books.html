@@ -1,0 +1,8 @@
+{% if author_products %}
+{% with author_products as products %}
+<section>
+    <h2 class="fw-500 section-header">Best {{author_name}}'s Collection</h2>
+    {% include 'store/product/product_wrapper.html' with view_as="card-view" %}
+</section>
+{% endwith %}
+{% endif %}

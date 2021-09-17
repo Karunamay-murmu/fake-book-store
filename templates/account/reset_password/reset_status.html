@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Reset Password
+{% endblock title %}
+
+{% block body %}
+<div style="text-align: center;" >
+    {% if 'sent' in request.get_full_path %}
+    <h3 class="fw-500" >Check your Email for password reset link</h3>
+    {% elif 'confirm' in request.get_full_path %}
+    <h3 class="fw-500" style="margin-bottom: 1.5rem;">Your password has been reset. Please Login</h3>
+    <a href="{% url 'account:login' %}" class="button button-primary-bg" role="button" >Login Account</a>
+    {% endif %}
+</div>
+{% endblock body %}

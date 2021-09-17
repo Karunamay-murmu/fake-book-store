@@ -1,0 +1,19 @@
+{% if authors %}
+    {% for author in authors %}
+        <a href="{% url 'store:shop' %}?filter=1&author={{author}}"
+            class="block link-hover tc-light-dark flex justify-between center-align">
+            {{author|title}}
+        </a>
+    {% endfor %}
+{% else %}
+    {% for product in products %}
+        {% for spec in product.spec.all %}
+            {% if spec.specification.name == 'author' %}
+            <a href="{% url 'store:shop' %}?filter=1&author={{spec.value}}"
+                class="block link-hover tc-light-dark flex justify-between center-align">
+                {{spec.value|title}}
+            </a>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endif %}

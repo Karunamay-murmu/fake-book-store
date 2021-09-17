@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Your Orders
+{% endblock title %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'stylesheets/user/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'stylesheets/order/orders.css' %}">
+{% endblock stylesheets %}
+{% block body %}
+<div class="dashboard content-container">
+    <div class="dashboard__header page-header">
+        <h2 class="fw-500">Your Orders</h2>
+        <p>Track, return or buy things again</p>
+    </div>
+    <div class='dashboard__content'>
+        <div class="oc__container fs-14">
+            {% for order in orders %}
+            <div class="oc__wrapper">
+                <header class="oc__header center-align">
+                    <div class="oc__row">
+                        <div class="row__header fw-500 tc-light-dark">ORDER PLACED</div>
+                        <div class="fw-500">{{order.created_at|date:"M d Y"}}</div>
+                    </div>
+                    <div class="oc__row">
+                        <div class="row__header fw-500 tc-light-dark">TOTAL</div>
+                        <div class="fw-500">${{order.amount}}</div>
+                    </div>
+                </header>
+                <div class="oc__product-container">
+                    <div class="oc__product--wrapper">
+                        {% for item in order.order_item.all %}
+                        {% with item.product as product %}
+                        <div class="oc__product">
+                            {% for image in product.image.all %}
+                            {% if image.is_featured %}
+                            <div class="oc__product--image">
+                                <img class="imgw-120" src="{{image.image.url}}" alt="{{image.alt_text}}">
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="oc__product--details ">
+                                <div class="oc__product--title fs-16 fw-500">{{product.title|truncatewords:5 }}</div>
+                                <div class="tc-light-dark">
+                                    {% for spec in product.spec.all %}
+                                    {% if spec.specification.name == "author" %}
+                                    <div>By: <span>{{spec.value}}</span></div>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <div>Qty: {{item.quantity}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endwith %}
+                        {% endfor %}
+                    </div>
+                    <div class="oc__product--btn">
+                        <div class="flex flex-column">
+                            <a href="" role="button" class="button">Cancel Order</a>
+                            <a href="" role="button" class="button">Edit Shipping Address</a>
+                            <a href="{% url 'order:details' order_key=order.order_key %}" role="button" class="button">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <h2>You haven't purchased anything yet.</h2>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock body %}

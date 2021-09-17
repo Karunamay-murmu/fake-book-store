@@ -1,0 +1,9 @@
+{% comment %} {% for category in categories %}
+<a href="{{category.get_absolute_url}}" class="block link-hover tc-light-dark flex justify-between center-align">
+    {{category.name|title}}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm">
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+    </svg>
+</a>
+{% endfor %} {% endcomment %}

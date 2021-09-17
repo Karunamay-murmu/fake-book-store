@@ -1,0 +1,110 @@
+{% load mptt_tags %}
+<div class="m-menu--wrapper">
+    <ul class="m-menu__list" id="id_top-level-menu">
+        <li class="m-menu__list--item flex justify-between" onclick="showSubMenu(this)" data-child="id_pages-sub-menu">
+            <span>Pages</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+        </li>
+        <li class="m-menu__list--item flex justify-between" onclick="showSubMenu(this)"
+            data-child="id_category-sub-menu">
+            <span>Category</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+        </li>
+    </ul>
+
+    <!-- Pages -->
+    <div class='m-menu--submenu-wrapper' id="id_pages-sub-menu">
+        <header class="flex justify-between center-align" id="id_submenu-header" onclick="hideSubMenu(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm"
+                style="transform: rotate(180deg)">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+            <span>Pages</span>
+        </header>
+        <a href="{% url 'store:index' %}"
+            class="block link-hover tc-light-dark flex justify-between center-align m-menu__list--item">
+            Home
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+        </a>
+        <a href="{% url 'store:shop' %}"
+            class="block link-hover tc-light-dark flex justify-between center-align m-menu__list--item">
+            Shop
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+        </a>
+        <a href="{% url 'store:index' %}"
+            class="block link-hover tc-light-dark flex justify-between center-align m-menu__list--item">
+            Top Seller
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+        </a>
+        <a href="{% url 'store:index' %}"
+            class="block link-hover tc-light-dark flex justify-between center-align m-menu__list--item">
+            Top Author
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+        </a>
+        <a href="{% url 'store:index' %}"
+            class="block link-hover tc-light-dark flex justify-between center-align m-menu__list--item">
+            Recommended
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- Categories -->
+    <div class='m-menu--submenu-wrapper' id="id_category-sub-menu">
+        <header class="m-menu__list--item flex justify-between center-align" onclick="hideSubMenu(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm"
+                style="transform: rotate(180deg)">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+            <span>Category</span>
+        </header>
+        {%recursetree categories%}
+        <li class="block link-hover tc-light-dark flex justify-between center-align m-menu__list--item"
+            {% if not node.is_leaf_node %} class="m-menu--submenu-wrapper" data-child="id_sub-category-{{node.id}}"
+            onclick="showSubMenu(this)" id="id_category-{{node.id}}" {% else %} href="{{category.get_absolute_url}}"
+            {% endif %}>
+            {{node.name|title}}
+            <!--TODO: Add links to mobile, menu-->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+            </svg>
+        </li>
+        {% if not node.is_leaf_node %}
+        <ul class="m-menu--submenu-wrapper" id="id_sub-category-{{node.id}}">
+            <header class="m-menu__list--item flex justify-between center-align" onclick="hideSubMenu(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-sm"
+                    style="transform: rotate(180deg)">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
+                </svg>
+                <span class="tc-dark">{{node.name|title}}</span>
+            </header>
+            {{children}}
+        </ul>
+        {% endif %}
+        {%endrecursetree%}
+    </div>
+</div>

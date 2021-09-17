@@ -1,0 +1,142 @@
+footer .section__newsletter {
+  background-color: #e7e7e9;
+}
+
+footer .section__newsletter--container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 1.5rem;
+  padding: 3rem;
+  border-radius: .3125rem;
+  margin: 3rem auto 2rem;
+}
+
+@media only screen and (max-width: 463px) {
+  footer .section__newsletter--container {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  footer .section__newsletter--container {
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
+}
+
+footer .section__newsletter .newsletter-form .sub-form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  grid-gap: 1rem;
+}
+
+@media only screen and (max-width: 576px) {
+  footer .section__newsletter .newsletter-form .sub-form {
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
+}
+
+footer .section__newsletter .newsletter-form .sub-form .field__wrapper {
+  margin-bottom: 0;
+}
+
+footer .section__newsletter .newsletter-form .sub-form label {
+  display: none;
+}
+
+footer .section__newsletter .newsletter-form .sub-form input {
+  border-radius: .3125rem;
+  border: 1px solid #156B6A;
+  outline: none;
+  padding: .907rem 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  overflow: hidden;
+  font-size: .875rem;
+}
+
+footer .section__newsletter .newsletter-form .sub-form input:focus {
+  -webkit-box-shadow: 0 0 0 3px #156b6a33;
+          box-shadow: 0 0 0 3px #156b6a33;
+}
+
+@media only screen and (max-width: 576px) {
+  footer .section__newsletter .newsletter-form .sub-form input {
+    width: 100%;
+  }
+}
+
+footer .section__newsletter .newsletter-form .sub-form button {
+  padding: .907rem 1rem !important;
+}
+
+@media only screen and (max-width: 463px) {
+  footer .section__newsletter .newsletter-form .sub-form button {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  footer .section--footer-links {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .section--footer-links .footer-col {
+    padding: 1rem 0 !important;
+  }
+}
+
+footer .section--footer-links .footer-col {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+footer .section--footer-links .footer-col h1 {
+  font-size: 2rem;
+}
+
+footer .section--footer-links .footer-col:first-child {
+  padding-top: 1rem;
+}
+
+footer .section--footer-links .footer-col:not(:first-child) {
+  padding: 1rem;
+}
+
+footer .section--footer-links .footer-col--header {
+  margin-bottom: 1rem;
+}
+
+footer .section--footer-links .footer-col--wrapper li {
+  margin: .5rem 0;
+}
+
+footer .section--footer-links .footer-col--wrapper a {
+  color: #6e6d7a;
+}
+
+footer .section--footer-links .footer-col--wrapper a:hover {
+  color: #2C394B;
+  text-decoration: underline;
+}
+
+footer .section--footer-links .footer-col--wrapper--contact {
+  margin-top: 1rem;
+}
+
+footer .section--copyright {
+  padding: 2rem 0 3rem;
+}
+/*# sourceMappingURL=footer.css.map */

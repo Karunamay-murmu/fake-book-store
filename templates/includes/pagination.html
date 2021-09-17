@@ -1,0 +1,16 @@
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a class="button" href="?page=1">&laquo; first</a>
+        <a class="button" href="?page={{ page_obj.previous_page_number }}">{{page_obj.previous_page_number}}</a>
+        {% endif %}
+    </span>
+    <span class="current in-block button button-primary-bg">
+        {{ page_obj.number }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a class="button" href="?page={{ page_obj.next_page_number }}">{{page_obj.next_page_number}}</a>
+    <a class="button" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+    {% endif %}
+</div>

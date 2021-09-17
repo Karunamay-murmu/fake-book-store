@@ -1,0 +1,59 @@
+@import "../global/variables.scss";
+
+
+.oc {
+    &__wrapper {
+        box-shadow: 0 0 0px 1px $text-light;
+        margin-bottom: 2rem;
+        border-radius: .3125rem;
+        overflow: hidden;
+
+    }
+
+    &__header {
+        padding: 1rem;
+        background-color: $text-white;
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        grid-gap: 2rem;
+
+    }
+
+    &__product-container {
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-gap: 1rem;
+
+        @media only screen and (max-width: $breakpoint-sm) {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+    &__product {
+        display: grid;
+        grid-template-columns: 7.5rem 1fr;
+        grid-gap: 1rem;
+        margin-bottom: 1rem;
+
+        @media only screen and (max-width: 375px) {
+            grid-template-columns: auto;
+            &--image {
+                text-align: center;
+            }
+        }
+
+        &--title {
+            margin-bottom: .2rem;
+        }
+
+        
+        &--btn {
+            a {
+                margin-bottom: .5rem;
+            }
+        }
+
+    }
+}

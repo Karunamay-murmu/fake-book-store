@@ -1,0 +1,7 @@
+<div class="product-wrapper justify-center {% if view_as == 'card-view' %}card-column{% else %}row-column{% endif %}">
+    {% for product in slice_products|default_if_none:products %}
+    {% include 'store/product/product_card.html' with view=view_as %} 
+    {% empty %}
+    <p>No product available to purchase</p>
+    {% endfor %}
+</div>

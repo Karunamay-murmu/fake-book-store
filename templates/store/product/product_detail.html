@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{% if product %}{{product.title}}{% else %}Product{% endif %}
+{% endblock title %}
+
+{% block script %}
+<script type="text/javascript" src={% static 'scripts/class/cart.js' %} defer></script>
+<script type="text/javascript" src={% static 'scripts/product/product_detail.js' %} defer></script>
+{% endblock script %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'stylesheets/product/product_detail.css' %}">
+<link rel="stylesheet" href="{% static 'stylesheets/product/product_card.css' %}">
+{% endblock stylesheets %}
+
+{% block body %}
+<div class="product--container content-container">
+    <div class="product__image">
+        {% for image in product.image.all %}
+        {% if image.is_featured %}
+        <img class="product__image--featured" id="id_featured-image" src="{{image.image.url}}" alt="{{image.alt_text}}">
+        {% else %}
+        <div class="product__image--other flex">
+            <img src="{{image.image.url}}" alt="{{image.alt_text}}">
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="product__details">
+        <h2 class="product--title">
+            <a href="{{product.get_absolute_url}}">
+                {{product.title}}
+            </a>
+        </h2>
+        <div class="product__spec">
+            {% for spec in product.spec.all %}
+            {% if spec.specification.name == "author" %}
+            <div class="product__spec--author">By <span>{{spec.value}}</span></div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="product__price flex base-align">
+            <div class="product__price--discount">${{product.discount_price|safe}}</div>
+            <div class="product__price--regular"><s>${{product.regular_price|safe}}</s></div>
+        </div>
+        <div class="product__meta">
+            <div class="product__meta--stock tag">
+                {% if product.is_active > 0 %}In Stock {% else %} Out Of Stock {% endif %}
+            </div>
+            <div class="product__meta--tax-info">Inclusive of all taxes</div>
+            <div class="product__meta--shipping">FREE Shipping <span>February 31, January</span></div>
+        </div>
+        <div class="product--add-to-cart center-align">
+            <div class="product--qty flex justify-between center-align">
+                <div class="product--qty--btn" onclick="cart.setQuantity(this)" data-qty="1">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
+                        class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512">
+                        <path fill="currentColor"
+                            d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="product--qty--amount" id="id_quantity">1</div>
+                <div class="product--qty--btn" onclick="cart.setQuantity(this)" data-qty="-1">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus"
+                        class="svg-inline--fa fa-minus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512">
+                        <path fill="currentColor"
+                            d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <div class="product--buy-btn">
+                {% include 'includes/button/add_to_cart.html' with button_class='button button-primary-bg' %}
+            </div>
+            <button class="button button-add-to-wishlist" type="button">
+                <a href="{% url 'account:profile:add_wishlist' id=product.id %}">
+                    Add To Wishlist
+                </a>
+            </button>
+        </div>
+        {% if product.description %}
+        <div class="product__information">
+            <span class="product__information--header">Description: </span>
+            <div class="product__information--description fs-14">{{product.description}}</div>
+        </div>
+        {% endif %}
+        <div class="product__information">
+            <span class="product__information--header">Specifications: </span>
+            <div class="product__information--wrapper">
+                <ul>
+                    <li>Genre: <span>{{product.category}}</span></li>
+                    {% for spec in product.spec.all %}
+                    <li>{{spec.specification.name|title|safe}}: <span>{{spec.value|title|safe}}</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'store/product/author_books.html' %}
+{% endblock body %}
