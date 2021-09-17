@@ -1,4 +1,5 @@
 import os
+import environ
 
 from pathlib import Path
 
@@ -6,12 +7,16 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = config('SECRET_KEY')
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
-DEBUG = config('DEBUG', default=True, cast=bool)
+SECRET_KEY = env('SECRET_KEY')
+
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['192.168.0.100', '192.168.0.105', '127.0.0.1', 'https://fake-book-store.herokuapp.com/']
-
 
 
 INSTALLED_APPS = [
