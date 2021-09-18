@@ -8,7 +8,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['fake-book-store.herokuapp.com']
+ALLOWED_HOSTS = ['fake-book-store.herokuapp.com', 'https://fake-book-store.herokuapp.com/', 'http://fake-book-store.herokuapp.com/']
 
 
 INSTALLED_APPS = [
