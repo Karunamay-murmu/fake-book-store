@@ -15,9 +15,6 @@
 {% endblock script %}
 
 {% block body %}
-{% comment %} <section>
-    {% include 'includes/section/section_hero.html' %}
-</section> {% endcomment %}
 <section class="section__trending">
     {% include 'includes/section/section_header.html' with header='Trending Books' view_all_text='View All' %}
     {% include 'includes/section/trending_section.html'%}
@@ -43,6 +40,5 @@
 <section class="section__bestselling">
     {% include 'includes/section/section_header.html' with header="Kid's Best Selling" %}
     {% include 'includes/slider.html' %}
-    {% comment %} {% include 'includes/section/best_selling.html' with view_as="card-view" %} {% endcomment %}
 </section>
 {% endblock body %}
