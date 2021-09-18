@@ -1,6 +1,4 @@
 import os
-import environ
-import django_heroku
 
 from pathlib import Path
 
@@ -10,7 +8,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.0.100', '192.168.0.105', '127.0.0.1', 'https://fake-book-store.herokuapp.com/']
+ALLOWED_HOSTS = ['fake-book-store.herokuapp.com']
 
 
 INSTALLED_APPS = [
