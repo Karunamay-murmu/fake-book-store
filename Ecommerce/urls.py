@@ -2,9 +2,9 @@ import debug_toolbar
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
 from django.conf.urls.static import static
 
-from Ecommerce.settings import core_settings as settings
 
 urlpatterns = [
     path('', include('store.urls')),
