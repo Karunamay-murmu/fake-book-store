@@ -4,18 +4,11 @@ import django_heroku
 
 from pathlib import Path
 
-from decouple import config
-
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-env = environ.Env(
-    DEBUG=(bool, False)
-)
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-SECRET_KEY = env('SECRET_KEY')
-
-DEBUG = env('DEBUG')
+DEBUG = False
 
 ALLOWED_HOSTS = ['192.168.0.100', '192.168.0.105', '127.0.0.1', 'https://fake-book-store.herokuapp.com/']
 
@@ -89,10 +82,10 @@ WSGI_APPLICATION = 'Ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd1r9orlpji0a0o',
-        'USER': 'qjogijgixjlrbu',
-        'PASSWORD': '8fdcfb7f151ecc71d2833952ab84c5772fa1a936619fd5b9a56e8ed96612a092',
-        'HOST': 'ec2-54-81-126-150.compute-1.amazonaws.com',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
         'PORT': '5432',
     }
 }
@@ -153,8 +146,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # stripe webhook signing secret
 # stripe listen --forward-to localhost:8000/payment/strip-hook
 
-STRIPE_ENDPOINT_SECRET = config('STRIPE_ENDPOINT_SECRET')
-STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
-STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+# STRIPE_ENDPOINT_SECRET = config('STRIPE_ENDPOINT_SECRET')
+# STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
+# STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 
 
