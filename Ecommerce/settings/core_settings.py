@@ -143,7 +143,7 @@ LOGIN_REDIRECT_URL = '/user/dashboard'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 # stripe webhook signing secret
 # stripe listen --forward-to localhost:8000/payment/strip-hook
