@@ -1,5 +1,6 @@
 import os
 import environ
+import django_heroku
 
 from pathlib import Path
 
@@ -78,10 +79,21 @@ WSGI_APPLICATION = 'Ecommerce.wsgi.application'
 
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd1r9orlpji0a0o',
+        'USER': 'qjogijgixjlrbu',
+        'PASSWORD': '8fdcfb7f151ecc71d2833952ab84c5772fa1a936619fd5b9a56e8ed96612a092',
+        'HOST': 'ec2-54-81-126-150.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
